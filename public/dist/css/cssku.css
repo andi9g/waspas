@@ -1,0 +1,38 @@
+.pinkku {
+    /* background-color: #fdc1d9; */
+    background-color: #88a777;
+}
+
+.pinkku2 {
+    /* background-color: #ffdcea; */
+    background-color: #cddbc5;
+}
+
+.footerku {
+    background-color: #edf5e9;
+}
+
+.pink-gelapku {
+    /* background-color: #fa8cb8; */
+    background-color: #759264;
+}
+
+.hoverku a:hover {
+    transition: 0.5s;
+    color: #405a32 !important;
+    background-color: #adc2a0;
+    border-left: 10px solid #759264;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #648054 !important;
+}
+
+.activeku {
+    color: #405a32 !important;
+    padding-top: 10px !important;
+    background-color: #adc2a0;
+    border-left: 10px solid #759264;
+    font-weight: bold;
+}
