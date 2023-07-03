@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\akunM;
 use App\Models\lowonganM;
+use App\Models\pelamarM;
+use App\Models\kriteriaM;
 use Illuminate\Http\Request;
 use Hash;
 
@@ -17,8 +19,15 @@ class umumC extends Controller
     public function home(Request $request)
     {
         $lowongan = lowonganM::where('ket', true)->orderBy('idlowongan', 'asc')->get();
+
+        $pelamar = akunM::where('posisi', '!=', 'superadmin')->count();
+        $low = lowonganM::where('ket', '!=', '0')->count();
+        $kriteria = kriteriaM::count();
         return view('pages.pagesHome', [
             'lowongan' => $lowongan,
+            'pelamar' => $pelamar,
+            'low' => $low,
+            'kriteria' => $kriteria,
         ]);
     }
     public function index()

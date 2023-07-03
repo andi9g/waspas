@@ -86,6 +86,7 @@
     <div class="login-main-text">
        <h2>DAFTAR KERJA ONLINE <br> Login Page</h2>
        <p>Login here to access.</p>
+
        {{-- <a href="{{ url('/', []) }}" class="btn btn-danger btn-sm">Kembali Halaman Utama</a> --}}
     </div>
  </div>

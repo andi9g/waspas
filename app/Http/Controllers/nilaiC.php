@@ -35,6 +35,7 @@ class nilaiC extends Controller
         ->join('akun', 'akun.idakun', 'pelamar.idakun')
         ->where('lowongan.idlowongan', $idlowongan)
         ->where('pelamar.ket', true)
+        ->where('akun.posisi', '!=', 'superadmin')
         ->select('akun.*', 'pelamar.*','lowongan.*', 'pelamar.ket')
         ->get()
         ;
@@ -53,6 +54,7 @@ class nilaiC extends Controller
             $pelamar = pelamarM::join('akun', 'akun.idakun', 'pelamar.idakun')
             ->join('lowongan', 'lowongan.idlowongan', 'pelamar.idlowongan')
             ->where('pelamar.idpelamar', $idpelamar)
+            ->where('akun.posisi','!=', 'superadmin')
             ->select('pelamar.*', 'akun.*')
             ->first();
 

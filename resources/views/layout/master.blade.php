@@ -149,19 +149,24 @@
                 </p>
               </a>
             </li>
+            @if (Session::get('posisi')=='user')
+
             <li class="nav-item hoverku">
                 <a href="{{ url('lamaran', []) }}" class="nav-link @yield('activekuLamaran')">
                   <i class="nav-icon fa fa-id-card"></i>
                   <p>
-                    Daftar Lamaran
+                    Data Lamaran
                   </p>
                 </a>
               </li>
+            @endif
+
+            @if (Session::get('posisi')=='superadmin')
             <li class="nav-item hoverku">
                 <a href="{{ url('pelamar', []) }}" class="nav-link @yield('activekuPelamar')">
                   <i class="nav-icon fa fa-users"></i>
                   <p>
-                    Daftar Pelamar
+                    Data Pelamar
                   </p>
                 </a>
               </li>
@@ -187,7 +192,7 @@
 
 
 
-            <li class="nav-item hoverku">
+            {{-- <li class="nav-item hoverku">
               <hr>
               <a href="{{ url('pengaturan', []) }}" class="nav-link @yield('activekupengaturan')">
                 <i class="nav-icon fas fa-wrench"></i>
@@ -195,7 +200,7 @@
                   Pengaturan
                 </p>
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item hoverku">
                 <a href="{{ url('kriteria', []) }}" class="nav-link @yield('activekuKriteria')">
                     <i class="nav-icon fa fa-laptop"></i>
@@ -212,6 +217,8 @@
                     </p>
                 </a>
             </li>
+
+            @endif
 
         </ul>
       </nav>

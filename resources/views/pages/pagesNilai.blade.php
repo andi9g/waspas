@@ -21,8 +21,10 @@
                     {{strtoupper($item->judullowongan)}} &nbsp;
                     <small class="badge badge-info text-xs">
                         @php
-                            $jum = DB::table('pelamar')->where('idlowongan', $item->idlowongan)
-                            ->where('ket', true)->count();
+                            $jum = DB::table('pelamar')->join('akun', 'akun.idakun', 'pelamar.idakun')
+                            ->where('akun.posisi', '!=','superadmin')
+                            ->where('pelamar.idlowongan', $item->idlowongan)
+                            ->where('pelamar.ket', true)->count();
                         @endphp
                         {{$jum}}
                     </small>

@@ -82,7 +82,7 @@
                                 @endif
                                 <div class="text-right">
                                     <button type="submit" class="btn btn-success ">
-                                        <i class="fa fa-edit"></i> Nilai
+                                        <i class="fa fa-edit"></i> Simpan
                                     </button>
 
                                 </div>
