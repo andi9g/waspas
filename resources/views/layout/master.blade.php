@@ -169,7 +169,8 @@
                     Data Pelamar
                   </p>
                 </a>
-              </li>
+            </li>
+
             <li class="nav-item hoverku">
                 <hr>
                 <a href="{{ url('nilai', []) }}" class="nav-link @yield('activekuNilai')">
@@ -178,7 +179,8 @@
                     Penilaian
                   </p>
                 </a>
-              </li>
+            </li>
+
             <li class="nav-item hoverku">
                 <a href="{{ url('ranking', []) }}" class="nav-link @yield('activekuRanking')">
                   <i class="nav-icon fa fa-trophy"></i>

@@ -41,7 +41,6 @@
                                 <select name='typedata' id='fortypedata' class='form-control'>
                                     <option value=''>Pilih</option>
                                     <option value='angka' class="text-uppercase">angka</option>
-                                    <option value='pendidikan' class="text-uppercase">pendidikan</option>
                                     <option value='manual' class="text-uppercase">manual</option>
                                 <select>
                             </div>
