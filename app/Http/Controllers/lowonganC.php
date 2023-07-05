@@ -84,14 +84,20 @@ class lowonganC extends Controller
     {
         $request->validate([
             'judullowongan' => 'required',
+            'tanggalbuka' => 'required',
+            'tanggaltutup' => 'required',
         ]);
 
 
         try{
             $judullowongan = $request->judullowongan;
+            $tanggalbuka = $request->tanggalbuka;
+            $tanggaltutup = $request->tanggaltutup;
 
             $update = lowonganM::where('idlowongan', $idlowongan)->update([
                 'judullowongan' => $judullowongan,
+                'tanggalbuka' => $tanggalbuka,
+                'tanggaltutup' => $tanggaltutup,
             ]);
             if($update) {
                 return redirect()->back()->with('toast_success', 'success');

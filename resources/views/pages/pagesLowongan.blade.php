@@ -163,6 +163,16 @@
                                             <label for='forjudullowongan' class='text-capitalize'>Nama Persyaratan</label>
                                             <input type='text' name='judullowongan' id='forjudullowongan' class='form-control' placeholder='masukan nama persyaratan' value="{{$item->judullowongan}}">
                                         </div>
+
+                                        <div class='form-group'>
+                                            <label for='fortanggalbuka' class='text-capitalize'>Tanggal Buka<i class="fa fa-bitbucket-square" aria-hidden="true"></i></label>
+                                            <input type='date' name='tanggalbuka' id='fortanggalbuka' class='form-control' placeholder='masukan tanggal buka' value="{{$item->tanggalbuka}}">
+                                        </div>
+
+                                        <div class='form-group'>
+                                            <label for='fortanggaltutup' class='text-capitalize'>Tanggal Tutup<i class="fa fa-bitbucket-square" aria-hidden="true"></i></label>
+                                            <input type='date' name='tanggaltutup' id='fortanggaltutup' class='form-control' placeholder='masukan tanggal buka' value="{{$item->tanggaltutup}}">
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
