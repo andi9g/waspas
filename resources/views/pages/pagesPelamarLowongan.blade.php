@@ -53,6 +53,7 @@
                                     @php
                                         $up = DB::table('pelamarupload')->where('idpelamar', $item->idpelamar)
                                         ->where('idupload', $u->idupload);
+                                        $n = 0;
                                     @endphp
                                     <td>
                                         @if ($up->count() > 0)
@@ -61,6 +62,9 @@
                                                 <i class="fa fa-eye"></i> lihat
                                             </a>
                                             @else
+                                            @php
+                                                $n++;
+                                            @endphp
                                             <font class="text-danger text-danger"> Tidak Lengkap</font>
 
                                         @endif
@@ -68,10 +72,12 @@
                                 @endforeach
 
                             <td>
-                                <form action="{{ route('pelamar.lowongan.ket', [$item->idpelamar]) }}" method="post">
+                                <form  action="{{ route('pelamar.lowongan.ket', [$item->idpelamar]) }}" method="post">
                                     @csrf
                                     <div class='form-group mb-0 pb-0'>
-                                        <select name='ket' id='forket' onchange="submit()" class='form-control mb-0 form-control-sm @if ($item->ket==true)
+                                        <select name='ket' id='forket' @if ($n>0)
+                                            disabled
+                                        @endif onchange="submit()" class='form-control mb-0 form-control-sm @if ($item->ket==true)
                                             text-bold text-success
                                         @else
                                             text-bold text-danger
