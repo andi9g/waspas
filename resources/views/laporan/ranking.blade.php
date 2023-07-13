@@ -98,6 +98,30 @@
         @endforeach
     </table>
 
+    <table width="100%">
+        <tr>
+            <td width="60%"></td>
+            <td width="">
+                <table>
+                    <tr>
+                        <td><br>Tanjungpinang, {{date('d F Y')}}</td>
+                    </tr>
+                    <tr>
+                        <td>Disahkan oleh</td>
+                    </tr>
+                    <tr>
+                        <td><br><br><br><br></td>
+                    </tr>
+                    <tr>
+                        <td>________________________</td>
+                    </tr>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
 
 </body>
 </html>
