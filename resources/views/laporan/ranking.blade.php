@@ -63,9 +63,7 @@
                 </table>
             </td>
             <td style="text-align: right" valign="top">
-                <p>
-                    Tanggal Cetak : {{\Carbon\Carbon::parse(date('Y-m-d'))->isoFormat('dddd, DD MMMM Y')}}
-                </p>
+
 
             </td>
         </tr>
@@ -100,11 +98,27 @@
 
     <table width="100%">
         <tr>
-            <td width="60%"></td>
+            <td width="10%"></td>
+            <td width="50%">
+                <table>
+                    <tr>
+                        <td><br><br></td>
+                    </tr>
+                    <tr>
+                        <td>Diketahui oleh</td>
+                    </tr>
+                    <tr>
+                        <td><br><br><br><br></td>
+                    </tr>
+                    <tr>
+                        <td>________________________</td>
+                    </tr>
+                </table>
+            </td>
             <td width="">
                 <table>
                     <tr>
-                        <td><br>Tanjungpinang, {{date('d F Y')}}</td>
+                        <td><br>Tanjungpinang, {{\Carbon\Carbon::parse(date('Y-m-d'))->isoFormat('DD MMMM Y')}}</td>
                     </tr>
                     <tr>
                         <td>Disahkan oleh</td>
@@ -114,7 +128,6 @@
                     </tr>
                     <tr>
                         <td>________________________</td>
-                    </tr>
                     </tr>
                 </table>
 
