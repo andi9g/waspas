@@ -82,7 +82,7 @@ class rankingC extends Controller
                 // $bobot = ;
                 $coba = collect(${$k->judulkriteria});
 
-                $coba = rsort($coba);
+                $coba = $coba->sortByDesc();
                 dd($coba);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
