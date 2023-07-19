@@ -86,9 +86,10 @@ class rankingC extends Controller
                 ->select('detailkriteria.bobot')
                 ->first();
                 // $bobot = ;
-                $coba = array(${$k->judulkriteria});
+                $coba = ${$k->judulkriteria};
 
                 $coba = sort($coba);
+                echo end($coba);
                 dd($coba);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
