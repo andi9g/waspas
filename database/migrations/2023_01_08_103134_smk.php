@@ -67,6 +67,7 @@ class Smk extends Migration
             $table->timestamps();
         });
 
+
         Schema::create('kriteria', function (Blueprint $table) {
             $table->bigIncrements('idkriteria');
             $table->String('judulkriteria')->unique();
