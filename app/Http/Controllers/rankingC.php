@@ -86,12 +86,12 @@ class rankingC extends Controller
                 ->select('detailkriteria.bobot')
                 ->first();
                 // $bobot = ;
-                $coba = ${$k->judulkriteria};
-                $coba = array(5,2,5,4);
-                // $coba = sort($coba);
-                dd(end($coba));
-                echo end($coba);
-                dd($coba);
+                $nilaiTinggi = ${$k->judulkriteria};
+                $nilaitinggi = sort($nilaiTinggi);
+                foreach ($nilaitinggi as $nt) {
+                    $ambil = $nt;
+                }
+                dd($nt);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
                 $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria);
