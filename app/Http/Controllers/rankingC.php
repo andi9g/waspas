@@ -82,7 +82,7 @@ class rankingC extends Controller
                 // $bobot = ;
 
                 $posisi = rsort(${"$k->judulkriteria"});
-                dd(end($posisi));
+                dd($posisi);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
                 $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria);
