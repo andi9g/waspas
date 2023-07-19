@@ -89,12 +89,11 @@ class rankingC extends Controller
                 $nilaiTinggi = ${$k->judulkriteria};
                 sort($nilaiTinggi);
                 $nilaiTinggi = end($nilaiTinggi);
-                dd($nilaiTinggi);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
-                $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria);
-                $n1 = $n1 + ((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria)) * $k->bobot);
-                $n2 = $n2 + pow((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria)), $k->bobot);
+                $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi;
+                $n1 = $n1 + ((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi) * $k->bobot);
+                $n2 = $n2 + pow((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi), $k->bobot);
                 $ki++;
             }
 
