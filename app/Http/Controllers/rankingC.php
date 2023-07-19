@@ -87,7 +87,8 @@ class rankingC extends Controller
                 ->first();
                 // $bobot = ;
                 $coba = ${$k->judulkriteria};
-
+                $coba = array(5,2,5,4);
+                dd($coba);
                 $coba = sort($coba);
                 echo end($coba);
                 dd($coba);
