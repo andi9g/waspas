@@ -86,7 +86,7 @@ class rankingC extends Controller
                 ->select('detailkriteria.bobot')
                 ->first();
                 // $bobot = ;
-                $coba = ${$k->judulkriteria};
+                $coba = array(${$k->judulkriteria});
 
                 // $coba = sort($coba);
                 dd($coba);
