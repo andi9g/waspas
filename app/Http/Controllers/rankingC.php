@@ -58,7 +58,7 @@ class rankingC extends Controller
                 ->first();
 
                 ${$k->judulkriteria}[] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
-
+                echo(empty($detailkriteria->bobot)?0:$detailkriteria->bobot);
             }
         }
 
