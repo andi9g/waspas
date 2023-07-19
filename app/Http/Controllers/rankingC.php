@@ -87,7 +87,7 @@ class rankingC extends Controller
                 ->first();
                 // $bobot = ;
                 $nilaiTinggi = ${$k->judulkriteria};
-                rsort($nilaiTinggi);
+                sort($nilaiTinggi);
                 $nilaiTinggi = end($nilaiTinggi);
                 dd($nilaiTinggi);
                 $nk[$ki] = $k->bobot;
