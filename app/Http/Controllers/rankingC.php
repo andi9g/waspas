@@ -88,7 +88,7 @@ class rankingC extends Controller
                 // $bobot = ;
                 $coba = ${$k->judulkriteria};
 
-                $coba = sort($coba);
+                // $coba = sort($coba);
                 dd($coba);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
