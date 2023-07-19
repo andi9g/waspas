@@ -44,6 +44,12 @@ class rankingC extends Controller
         $konstanta = 0.5;
         $pi = 0;
 
+        $kriteria = kriteriaM::get();
+
+        foreach ($kriteria as $k) {
+            ${$k->judulkriteria} = array();
+        }
+
         foreach ($pelamar as $p) {
             $kriteria = kriteriaM::get();
 
@@ -57,7 +63,7 @@ class rankingC extends Controller
                 ->select('detailkriteria.bobot')
                 ->first();
 
-                ${$k->judulkriteria}[] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
+                ${$k->judulkriteria}[] = (int) empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
 
             }
         }
@@ -83,7 +89,7 @@ class rankingC extends Controller
                 $coba = ${$k->judulkriteria};
 
                 $coba = rsort($coba);
-                dd(end($coba));
+                dd($coba);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
                 $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria);
