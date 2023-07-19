@@ -137,7 +137,7 @@
                         @php
                             $pelamarupload = DB::table('pelamarupload')->join('upload', 'upload.idupload', 'pelamarupload.idupload')
                             ->join('lowongan', 'lowongan.idlowongan', 'upload.idlowongan')
-                            ->where('lowongan.ket', true)
+                            // ->where('lowongan.ket', true)
                             ->where('upload.idupload', $u->idupload)
                             ->where('pelamarupload.idpelamar', $item->idpelamar)
                             ->select('pelamarupload.*');
