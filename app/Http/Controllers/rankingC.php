@@ -58,7 +58,7 @@ class rankingC extends Controller
                 ->first();
 
                 ${$k->judulkriteria}[] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
-                echo(empty($detailkriteria->bobot)?0:$detailkriteria->bobot);
+
             }
         }
 
@@ -80,9 +80,10 @@ class rankingC extends Controller
                 ->select('detailkriteria.bobot')
                 ->first();
                 // $bobot = ;
+                $coba = collect(${$k->judulkriteria});
 
                 $posisi = rsort(${$k->judulkriteria});
-                dd($posisi);
+                dd($coba);
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
                 $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria);
