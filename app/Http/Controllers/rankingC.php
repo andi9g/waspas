@@ -80,10 +80,10 @@ class rankingC extends Controller
                 ->select('detailkriteria.bobot')
                 ->first();
                 // $bobot = ;
-                $coba = collect(${$k->judulkriteria});
+                $coba = ${$k->judulkriteria};
 
-                $coba = $coba->sortByDesc();
-                dd($coba);
+                // $coba = $coba->take;
+                dd(count($coba));
                 $nk[$ki] = $k->bobot;
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
                 $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria);
