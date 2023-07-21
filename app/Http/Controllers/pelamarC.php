@@ -40,7 +40,7 @@ class pelamarC extends Controller
         $pelamar = pelamarM::join('lowongan', 'lowongan.idlowongan', 'pelamar.idlowongan')
         // ->where('lowongan.ket', true)
         ->where('pelamar.idakun', $idakun)->orderBy('pelamar.idpelamar', 'asc')
-        ->select('pelamar.*', 'lowongan.judullowongan', 'lowongan.ket')
+        ->select('pelamar.*', 'lowongan.judullowongan', 'lowongan.ket','lowongan.idlowongan')
         ->get();
 
         return view('pages.pagesLamaran', [

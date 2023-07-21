@@ -46,10 +46,25 @@
                                 <td class="text-uppercase text-bold">{{$u->judulupload}}</td>
                                 <td>
                                     <!-- Button trigger modal -->
+                                    @php
+                                        $lowongan = DB::table('lowongan')->where('idlowongan', $item->idlowongan)->first();
+                                        $tanggalbuka = strtotime($lowongan->tanggalbuka);
+                                        $tanggaltutup = strtotime($lowongan->tanggaltutup);
+                                        $sekarang = strtotime (date(now()));
+                                    @endphp
+                                    @if ($sekarang < $tanggalbuka)
+                                    <font class="text-warning">Pendaftaran belum dibuka</font>
+                                    @elseif ($sekarang > $tanggaltutup)
+                                        <font class="text-danger">Telah lewat masa pendaftaran</font>
+                                    @else
                                     <button type="button" class="badge badge-primary badge-lg border-0 py-1" data-toggle="modal" data-target="#upload{{$u->idupload}}">
                                       <i class="fa fa-file"></i> Upload
                                     </button>
-                                    @if ($pelamarupload->count() === 1)
+                                    @endif
+
+
+
+                                    @if ($pelamarupload->count() === 1 )
                                         <a href="{{ url('/berkas/pelamar', [$pelamarupload->first()->namaberkas]) }}" class="badge badge-info border-0 py-1" target="_blank">
                                             <i class="fa fa-eye"></i>
                                             Lihat

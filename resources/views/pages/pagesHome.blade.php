@@ -89,7 +89,14 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Setuju</button>
+                                            @php
+                                                $tanggalbuka = strtotime($item->tanggalbuka);
+                                                $tanggaltutup = strtotime($item->tanggaltutup);
+                                                $sekarang = strtotime(now());
+                                            @endphp
+                                            <button @if ($sekarang < $tanggalbuka || $sekarang > $tanggaltutup)
+                                                disabled
+                                            @endif type="submit" class="btn btn-primary">Setuju</button>
                                         </div>
                                     </form>
                                 </div>
@@ -97,8 +104,9 @@
                         </div>
 
                     @else
+
                         <a href="{{ url('lamaran', []) }}" class="badge badge-secondary badge-lg border-0 py-1">
-                            <i class="fa fa-eye"></i> Lengkapi Persyaratan
+                            <i class="fa fa-eye"></i> Lihat Data Upload
                         </a>
                     @endif
 
