@@ -90,6 +90,7 @@ class rankingC extends Controller
                 sort($nilaiTinggi);
                 $nilaiTinggi = end($nilaiTinggi);
                 $nk[$ki] = $k->bobot;
+
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
                 $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi;
                 $n1 = $n1 + ((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi) * $k->bobot);
@@ -163,6 +164,25 @@ class rankingC extends Controller
         $k1 = array();
         $konstanta = 0.5;
         $pi = 0;
+
+        foreach ($pelamar as $p) {
+            $kriteria = kriteriaM::get();
+
+            foreach ($kriteria as $k) {
+                $detailkriteria = nilaiM::join('kriteria', 'kriteria.idkriteria', 'nilai.idkriteria')
+                ->join('pelamar', 'pelamar.idpelamar', 'nilai.idpelamar')
+                ->join('detailkriteria', 'detailkriteria.iddetailkriteria', 'nilai.iddetailkriteria')
+                ->where('nilai.idkriteria', $k->idkriteria)
+                ->where('pelamar.idpelamar', $p->idpelamar)
+                ->orderBy('kriteria.idkriteria', 'asc')
+                ->select('detailkriteria.bobot')
+                ->first();
+
+                ${$k->judulkriteria}[] = (int) empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
+
+            }
+        }
+
         foreach ($pelamar as $p) {
             $kriteria = kriteriaM::get();
             $ki = 0;
@@ -180,12 +200,15 @@ class rankingC extends Controller
                 ->select('detailkriteria.bobot')
                 ->first();
                 // $bobot = ;
-
+                $nilaiTinggi = ${$k->judulkriteria};
+                sort($nilaiTinggi);
+                $nilaiTinggi = end($nilaiTinggi);
                 $nk[$ki] = $k->bobot;
+
                 $nilai[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot;
-                $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria);
-                $n1 = $n1 + ((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria)) * $k->bobot);
-                $n2 = $n2 + pow((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / count($kriteria)), $k->bobot);
+                $normalisasi[$ki] = empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi;
+                $n1 = $n1 + ((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi) * $k->bobot);
+                $n2 = $n2 + pow((empty($detailkriteria->bobot)?0:$detailkriteria->bobot / $nilaiTinggi), $k->bobot);
                 $ki++;
             }
 

@@ -25,17 +25,28 @@ class kriteriaC extends Controller
     public function store(Request $request)
     {
         // dd($request);
-        $request->validate([
-            'judulkriteria' => 'required',
-            'typedata' => 'required',
-            'bobot' => 'required',
-        ]);
+        // $request->validate([
+        //     'judulkriteria' => 'required',
+        //     'typedata' => 'required',
+        //     'bobot' => 'required',
+        // ]);
 
 
-        try{
+        // try{
             $judulkriteria = $request->judulkriteria;
             $typedata = $request->typedata;
             $bobot = $request->bobot;
+
+            $kriteria = kriteriaM::get();
+            $total = 0;
+            foreach ($kriteria as $ambil) {
+                $total = $total + $ambil->bobot;
+            }
+            $total = $total + $bobot;
+
+            if($total > 100) {
+                return redirect()->back()->with('toast_error','Maaf, bobot maksimal 100%, yang diproses adalah '. $total."%")->withInput();
+            }
 
             $store = new kriteriaM;
             $store->judulkriteria = $judulkriteria;
@@ -89,9 +100,9 @@ class kriteriaC extends Controller
 
 
             }
-        }catch(\Throwable $th){
-            return redirect()->back()->with('toast_error', 'Terjadi kesalahan');
-        }
+        // }catch(\Throwable $th){
+        //     return redirect()->back()->with('toast_error', 'Terjadi kesalahan');
+        // }
     }
 
 
@@ -248,6 +259,17 @@ class kriteriaC extends Controller
 
         try{
             $bobot = $request->bobot;
+
+            $kriteria = kriteriaM::get();
+            $total = 0;
+            foreach ($kriteria as $ambil) {
+                $total = $total + $ambil->bobot;
+            }
+            $total = $total + $bobot;
+
+            if($total > 100) {
+                return redirect()->back()->with('toast_error','Maaf, bobot maksimal 100%, yang diproses adalah '. $total."%")->withInput();
+            }
 
             $update = kriteriaM::where('idkriteria', $idkriteria)->update([
                 'bobot' => $bobot,

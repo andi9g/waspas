@@ -85,7 +85,14 @@
                 </thead>
 
                 <tbody>
+                    @php
+                        $total = 0;
+                    @endphp
                     @foreach ($kriteria as $item)
+                    @php
+                        $total = $total + $item->bobot;
+                    @endphp
+
                     <tr>
                         <td nowrap width="1px">{{$loop->iteration}}</td>
                         <td>{{$item->judulkriteria}}</td>
@@ -112,6 +119,15 @@
 
                     @endforeach
                 </tbody>
+            </table>
+
+            <table width="100%">
+                <tr>
+                    <td class="text-right">
+                        <h3 class="py-0 my-0">Total Bobot  : </h3>
+                        <h1 class="py-0 my-0">{{$total}}%</h1>
+                    </td>
+                </tr>
             </table>
         </div>
     </div>
