@@ -6,6 +6,7 @@ use App\Models\akunM;
 use App\Models\lowonganM;
 use App\Models\pelamarM;
 use App\Models\kriteriaM;
+use App\Models\Ranking;
 use Illuminate\Http\Request;
 use Hash;
 
@@ -33,6 +34,46 @@ class umumC extends Controller
     public function index()
     {
         return view('pages.pageslogin');
+    }
+
+    public function pelamar(Request $request)
+    {
+        $idlowongan = empty($request->lowongan)?"":$request->lowongan;
+
+        $lowongan = lowonganM::where('idlowongan', 'like', "$idlowongan%")
+        ->where('ket', true)
+        ->where('umum', true)
+        ->get();
+        $data = [];
+        foreach ($lowongan as $low) {
+            $ranking = Ranking::join('pelamar', 'pelamar.idpelamar', 'ranking.idpelamar')
+            ->join('akun', 'akun.idakun', 'pelamar.idakun')
+            ->where('ranking.idlowongan', $low->idlowongan)
+            ->where('akun.posisi', '!=', 'superadmin')
+            ->orderBy('ranking.ranking', 'desc')
+            ->select('pelamar.*', 'ranking.*', 'akun.namaakun')
+            ->get();
+            $dataPelamar = [];
+            $no = 1;
+            foreach ($ranking as $ran) {
+                $dataPelamar[] = [
+                    'no' => $no++,
+                    'namapelamar' => $ran->namaakun,
+                ];
+            }
+            $data[] = [
+                'judullowongan' => $low->judullowongan,
+                'pelamar' => $dataPelamar,
+            ];
+        }
+        $lowongan = lowonganM::where('ket', true)
+        ->where('umum', true)
+        ->get();
+        return view('pages.datapelamar', [
+            'data' => $data,
+            'lowongan' => $lowongan,
+            'idlowongan' => $idlowongan,
+        ]);
     }
     public function logout(Request $request)
     {

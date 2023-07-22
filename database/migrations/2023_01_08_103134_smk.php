@@ -48,6 +48,15 @@ class Smk extends Migration
             $table->date('tanggalbuka');
             $table->date('tanggaltutup');
             $table->boolean('ket');
+            $table->boolean('umum')->nullable()->default(0);
+            $table->timestamps();
+        });
+
+        Schema::create('ranking', function (Blueprint $table) {
+            $table->bigIncrements('idranking');
+            $table->integer('idlowongan');
+            $table->integer('idpelamar');
+            $table->double('nilai');
             $table->timestamps();
         });
 

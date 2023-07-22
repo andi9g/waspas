@@ -20,6 +20,21 @@
             <i class="fa fa-print"></i> Print
         </a>
 
+        <form action="{{ route('ranking.umum', [$idlowongan]) }}" method="post" class="d-inline">
+            @csrf
+            <button type="submit" class="btn @if ($umum == true)
+                btn-success
+            @else
+                btn-danger
+            @endif">
+            @if ($umum == true)
+                Data Ditampilkan Untuk Umum
+            @else
+                Data Tidak Ditampilkan Untuk Umum
+            @endif
+            </button>
+        </form>
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">

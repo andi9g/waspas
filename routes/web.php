@@ -18,6 +18,7 @@ Route::get('/', function(){
 });
 Route::get('/logout', 'umumC@logout');
 Route::get('/login', 'umumC@index');
+Route::get('/datapelamar', 'umumC@pelamar');
 Route::post('/login', 'umumC@proses')->name('login.proses');
 Route::get('/register', 'umumC@register');
 Route::post('/register', 'umumC@daftar')->name('daftar.akun');
@@ -49,6 +50,7 @@ Route::middleware(['GerbangLogin'])->group(function () {
     //ranking
     Route::get('ranking', 'rankingC@index');
     Route::get('ranking/{idlowongan}', 'rankingC@ranking')->name('ranking.peserta');
+    Route::post('ranking/{idlowongan}/umum', 'rankingC@umum')->name('ranking.umum');
 
     Route::get('cetak/ranking/{idlowongan}', 'rankingC@cetak')->name('laporan.ranking');
 

@@ -86,7 +86,8 @@
     <div class="login-main-text">
        <h2>DAFTAR KERJA ONLINE <br> Login Page</h2>
        <p>Login here to access.</p>
-       <a href="{{ url('/login', []) }}" class="btn btn-danger btn-sm">Halaman Login</a>
+       <a href="{{ url('/login', []) }}" class="btn btn-danger btn-sm my-1">Halaman Login</a>
+       <a href="{{ url('/datapelamar', []) }}" class="btn btn-success btn-sm">HASIL PENILAIAN PELAMAR</a>
     </div>
  </div>
  <div class="main">

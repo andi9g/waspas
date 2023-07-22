@@ -87,7 +87,7 @@
        <h2>DAFTAR KERJA ONLINE <br> Login Page</h2>
        <p>Login here to access.</p>
 
-       {{-- <a href="{{ url('/', []) }}" class="btn btn-danger btn-sm">Kembali Halaman Utama</a> --}}
+       <a href="{{ url('/datapelamar', []) }}" class="btn btn-success btn-sm">HASIL PENILAIAN PELAMAR</a>
     </div>
  </div>
  <div class="main">
