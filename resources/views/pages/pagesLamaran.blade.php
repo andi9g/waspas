@@ -107,6 +107,7 @@
                                                     <label for='namaberkas' class='text-capitalize'>Pilih Berkas</label>
                                                     <input type='file' name='upload' id='namaberkas' class='form-control' placeholder='masukan namaplaceholder'>
                                                     <p>Format yang di setujui gambar (jpg, jpeg & png) serta dokumen (PDF) </p>
+                                                    <p>Max file yang diupload adalah 2 MB</p>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
