@@ -90,8 +90,8 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             @php
-                                                $tanggalbuka = strtotime($item->tanggalbuka);
-                                                $tanggaltutup = strtotime($item->tanggaltutup);
+                                                $tanggalbuka = strtotime(date("Y-m-d", strtotime($item->tanggalbuka)));
+                                                $tanggaltutup = strtotime(date("Y-m-d", strtotime("+1 days", $item->tanggaltutup)));
                                                 $sekarang = strtotime(now());
                                             @endphp
                                             <button @if ($sekarang < $tanggalbuka || $sekarang > $tanggaltutup)
