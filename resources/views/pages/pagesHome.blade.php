@@ -93,7 +93,9 @@
                                                 $tanggalbuka = strtotime($item->tanggalbuka);
                                                 $tanggaltutup = strtotime($item->tanggaltutup);
                                                 $sekarang = strtotime(date('Y-m-d'));
+                                                // dd($sekarang)
                                             @endphp
+
                                             <button @if ($sekarang < $tanggalbuka || $sekarang > $tanggaltutup)
                                                 disabled
                                             @endif type="submit" class="btn btn-primary">Setuju</button>
