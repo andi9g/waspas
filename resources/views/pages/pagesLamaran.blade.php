@@ -85,7 +85,7 @@
                                     @if ($pelamarupload->count() === 1)
                                         <font class="text-success text-bold">OK</font>
                                     @else
-                                        <font class="text-danger text-bold">-</font>
+                                        <font class="text-danger text-bold">Tidak ada data</font>
                                     @endif
                                 </td>
                             </tr>
