@@ -91,7 +91,7 @@
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             @php
                                                 $tanggalbuka = strtotime(date("Y-m-d", strtotime($item->tanggalbuka)));
-                                                $tanggaltutup = strtotime(date("Y-m-d", strtotime("+1 days", $item->tanggaltutup)));
+                                                $tanggaltutup = strtotime(date("Y-m-d", strtotime($item->tanggaltutup)));
                                                 $sekarang = strtotime(now());
                                             @endphp
                                             <button @if ($sekarang < $tanggalbuka || $sekarang > $tanggaltutup)
