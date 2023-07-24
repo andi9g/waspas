@@ -61,6 +61,11 @@ class pelamarC extends Controller
                 $lokasi = $file->getClientOriginalName();
                 $fileName = pathinfo($lokasi, PATHINFO_FILENAME);
                 $extension = $file->getClientOriginalExtension();
+                $size = $file->getSize();
+
+                if($size > 2048) {
+                    return redirect()->back()->with('toast_error', 'Maximal data adalah 2Mb');
+                }
 
                 $format = strtolower($extension);
                 if($format == 'jpg' || $format == 'png' || $format == 'pdf' | $format == 'jpeg') {
