@@ -92,7 +92,7 @@
                                             @php
                                                 $tanggalbuka = strtotime(date("Y-m-d", strtotime($item->tanggalbuka)));
                                                 $tanggaltutup = strtotime(date("Y-m-d", strtotime($item->tanggaltutup)));
-                                                $sekarang = strtotime(now());
+                                                $sekarang = strtotime(date("Y-m-d", now()));
                                             @endphp
                                             <button @if ($sekarang < $tanggalbuka || $sekarang > $tanggaltutup)
                                                 disabled
