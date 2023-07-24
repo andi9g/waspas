@@ -50,7 +50,7 @@
                                         $lowongan = DB::table('lowongan')->where('idlowongan', $item->idlowongan)->first();
                                         $tanggalbuka = strtotime($lowongan->tanggalbuka);
                                         $tanggaltutup = strtotime($lowongan->tanggaltutup);
-                                        $sekarang = strtotime (date(now()));
+                                        $sekarang = strtotime (date("Y-m-d"));
                                     @endphp
                                     @if ($sekarang < $tanggalbuka)
                                     <font class="text-warning">Pendaftaran belum dibuka</font>
