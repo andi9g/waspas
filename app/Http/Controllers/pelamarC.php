@@ -63,7 +63,7 @@ class pelamarC extends Controller
                 $extension = $file->getClientOriginalExtension();
                 $size = $file->getSize();
 
-                if($size > 2048) {
+                if($size > 2000000) {
                     return redirect()->back()->with('toast_error', 'Maximal data adalah 2Mb');
                 }
 
